@@ -31,15 +31,19 @@ AFRAME.registerComponent('sunfield', {
       'client/models/sunf1.gltf',
 
       function(gltf){
-	console.log(w);
-	console.log(h);
-	console.log(w+1);
-	console.log(h+1);
         for(var i = 0; i < (w+1); i++){
 	  for(var j = 0; j < (h+1); j++){
             const scene = gltf.scene.clone();
             const flnm = 'flower'+i+j;
-            scene.position.set(i-(w/2), j-(h/2), 0);
+	    var woff = Math.random()/2;
+	    var hoff = Math.random()/2;
+	    if(Math.random() < 0.5){
+	      woff = woff*-1;
+	    }
+	    if(Math.random() < 0.5){
+	      hoff = hoff*-1;
+	    }
+            scene.position.set(i-(w/2)-woff, j-(h/2)-woff, 0);
 	    scene.rotation.set(Math.PI/2, 0, 0);
 	    el.object3D.add(scene);
 	  }
