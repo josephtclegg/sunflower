@@ -2,6 +2,7 @@
   <head>
     <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
     <script src="client/scripts/sunfield.js"></script>
+    <script src="client/scripts/skyshader.js"></script>
   </head>
   <body>
     <a-scene>
@@ -13,7 +14,10 @@
                sunfield
                >
       </a-plane>
-      <a-sky color="#ECECEC"></a-sky>
+      <a-sky
+	color="#ECECEC"
+	material="shader:sky-shader; color: red;"
+	></a-sky>
     </a-scene>
   </body>
 </html>
