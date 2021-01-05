@@ -1,5 +1,5 @@
 # sunflower
 
-cd sunflower
-yarn start
+cd sunflower\n
+yarn start\n
 point browser to localhost:3000
