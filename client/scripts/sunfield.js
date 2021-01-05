@@ -1,17 +1,27 @@
 AFRAME.registerComponent('sunfield', {
   schema: {
-    width: {type: 'number'},
-    height: {type: 'number'},
-  },
+    width: {type: 'number'},  // width of sunflower field
+    height: {type: 'number'}, // height of sunflower field
+    step: {type: 'number'},   // space between sunflowers
+    roam: {type: 'number'},   // amount of freedom for random displacement
+  },                          //within individual flower's grid
 
   init: function () {
     const el = this.el;
     const dat = this.data;
+    const step = dat.step;
+    const roam = dat.roam;
+    const loader = new THREE.GLTFLoader();
     var h = this.el.getAttribute('height');
     var w = this.el.getAttribute('width');
-    const loader = new THREE.GLTFLoader();
     var flwrs = [];
 
+    if(!step){
+      step = 1;
+    }
+    if(!roam){
+      roam = 1;
+    }
     if(!h){
       h = dat.height;
     }
@@ -31,12 +41,12 @@ AFRAME.registerComponent('sunfield', {
       'client/models/sunf1.gltf',
 
       function(gltf){
-        for(var i = 0; i < (w+1); i++){
-	  for(var j = 0; j < (h+1); j++){
+        for(var i = 0; i < (w+1); i+=step){
+	  for(var j = 0; j < (h+1); j+=step){
             const scene = gltf.scene.clone();
             const flnm = 'flower'+i+j;
-	    var woff = Math.random()/2;
-	    var hoff = Math.random()/2;
+	    var woff = Math.random()/2*roam;
+	    var hoff = Math.random()/2*roam;
 	    if(Math.random() < 0.5){
 	      woff = woff*-1;
 	    }

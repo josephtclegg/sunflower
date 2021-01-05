@@ -2,6 +2,8 @@
   <head>
     <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
     <script src="client/scripts/sunfield.js"></script>
+    <script src="client/shaders/skyshader.js"></script>
+    <script src="client/shaders/rainbowshader.js"></script>
   </head>
   <body>
     <a-scene>
@@ -10,10 +12,13 @@
                width="40"
                height="40"
                color="#7BC8A4"
-               sunfield
+               sunfield="step: 4; roam: 4;"
                >
       </a-plane>
-      <a-sky color="#ECECEC"></a-sky>
+      <a-sky
+	color="#ECECEC"
+	material="shader:rainbow-shader;"
+	></a-sky>
     </a-scene>
   </body>
 </html>
