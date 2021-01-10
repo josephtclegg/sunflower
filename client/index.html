@@ -4,20 +4,22 @@
     <script src="client/scripts/sunfield.js"></script>
     <script src="client/shaders/skyshader.js"></script>
     <script src="client/shaders/rainbowshader.js"></script>
+    <script src="client/shaders/swirlyshader.js"></script>
+    <script src="client/shaders/sunset.js"></script>
   </head>
   <body>
     <a-scene>
       <a-plane position="0 0 0"
                rotation="-90 0 0"
-               width="40"
-               height="40"
-               color="#7BC8A4"
-               sunfield="step: 4; roam: 4;"
+               width="100"
+               height="100"
+               color="#ffbb6e"
+               sunfield="step: 3; roam: 4;"
                >
       </a-plane>
       <a-sky
 	color="#ECECEC"
-	material="shader:rainbow-shader;"
+	material="shader:sunset-shader; color2: red; color1: #abf0ff;"
 	></a-sky>
     </a-scene>
   </body>

@@ -38,7 +38,7 @@ AFRAME.registerComponent('sunfield', {
     w = parseInt(w);
 
     loader.load(
-      'client/models/sunf1.gltf',
+      'client/models/redsun.gltf',
 
       function(gltf){
         for(var i = 0; i < (w+1); i+=step){
